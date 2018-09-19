@@ -1,0 +1,19 @@
+<hr>
+<h2> <%= @sub.name %>  Sub </h2>
+
+<a href="<%= subs_url %>">Link</a>
+
+<hr>
+
+<h3>Posts</h3>
+
+<% @sub.posts.each do |post| %>
+
+<ul>
+  <li><a href="#<%= post_url(post) %>"><%= post.title %></a> </li>
+</ul>
+
+
+<% end  %>
+<hr>
+<a href="<%= new_post_url %>">New Post</a>

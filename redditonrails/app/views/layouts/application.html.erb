@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redditonrails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <%= flash[:errors] %>
+    <% if logged_in? %>
+    <h2>Hello, <%=current_user.username  %> </h2>
+    <form class="" action="<%= session_url %>" method="post">
+      <%= authen_token %>
+      <input type="hidden" name="_method" value="delete">
+
+      <input type="submit" name="" value="Log Out">
+
+    </form>
+    <% else %>
+        <a href="<%= new_user_url %>">Sign Up</a>
+
+
+    <%  end  %>
+
+
+    <%= yield %>
+  </body>
+</html>

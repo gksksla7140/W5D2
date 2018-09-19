@@ -1,0 +1,20 @@
+<% action = type == :new ? subs_url : sub_url(@sub)  %>
+<% button = type == :new ? "Create Sub" : "Update Sub" %>
+
+
+
+
+<form class="" action="<%= action %>" method="post">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <% if type == :edit %>
+  <input type="hidden" name="_method" value="patch">
+  <% end  %>
+
+  <label for="">Name</label>
+  <input type="text" name="sub[name]" value="<%= @sub.name %>">
+  <label for="">description</label>
+  <input type="text" name="sub[description]" value="<%= @sub.description %>">
+  <input type="submit" name="" value="<%= button  %>">
+
+</form>
